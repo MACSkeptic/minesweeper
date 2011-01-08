@@ -1,0 +1,17 @@
+bin
+Bin
+obj
+Obj
+*.user
+*.suo
+*.stackdump
+*.Publish.xml
+*StyleCop.Cache
+TestResults
+*_ReSharper*
+*.log
+Thumbs.db
+*sln.cache
+**/files.txt
+ivy-*
+*.*swp*
