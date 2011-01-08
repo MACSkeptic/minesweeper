@@ -23,8 +23,7 @@ namespace ThoughtWorks.CodingDojo.MineSweeper.Models
                 return false;
             }
 
-            var that = obj as Position;
-            return _row == that._row && _column == that._column;
+            return DistanceTo(obj as Position) == 0;
         }
 
         public static bool operator ==(Position left, Position right)
