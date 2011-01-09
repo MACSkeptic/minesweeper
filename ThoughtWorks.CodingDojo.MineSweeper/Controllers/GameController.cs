@@ -15,6 +15,12 @@ namespace ThoughtWorks.CodingDojo.MineSweeper.Controllers
             return View(CurrentBoard);
         }
 
+        public ActionResult Clear()
+        {
+            Session["Board"] = null;
+            return RedirectToAction("Index");
+        }
+
         private Board CurrentBoard
         {
             get
