@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace ThoughtWorks.CodingDojo.MineSweeper.Models
 {
     public class Cell
     {
-        private readonly Position _position;
-        private readonly Contents _contents;
         private readonly Board _board;
+        private readonly Contents _contents;
+        private readonly Position _position;
+        public Position Position { get { return _position; } }
 
         public Cell(Position position, Contents contents, Board board)
         {
@@ -16,15 +17,17 @@ namespace ThoughtWorks.CodingDojo.MineSweeper.Models
             _board = board;
         }
 
-        public bool HasBomb { get { return _contents == Contents.Bomb; } }
-        public IList<Cell> Neighbours { get { return _board.CellsAound(this); } }
+        public int NumberOfBombsAround { get { return Neighbours.Count(cell => cell.HasBomb); } }
 
-        public int DistanceTo(Cell cell)
+        public virtual bool HasBomb { get { return _contents == Contents.Bomb; } }
+        private IList<Cell> Neighbours { get { return _board.CellsAound(this); } }
+
+        public virtual int DistanceTo(Cell cell)
         {
             return _position.DistanceTo(cell._position);
         }
 
-        public bool HasSamePositionOf(Cell targetCell)
+        public virtual bool HasSamePositionOf(Cell targetCell)
         {
             return targetCell._position == _position;
         }

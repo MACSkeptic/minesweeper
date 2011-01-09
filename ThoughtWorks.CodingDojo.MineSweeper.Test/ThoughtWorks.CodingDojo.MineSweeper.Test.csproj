@@ -57,6 +57,7 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\BoardTest.cs" />
     <Compile Include="Model\CellTest.cs" />
     <Compile Include="Model\PositionTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
