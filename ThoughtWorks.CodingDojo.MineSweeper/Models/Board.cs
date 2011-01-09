@@ -22,7 +22,7 @@ namespace ThoughtWorks.CodingDojo.MineSweeper.Models
                 var numberOfRows = startingRowNumber + _cells.Max(cell => cell.Position.Row) + 1;
 
                 var matrix = new List<IList<Cell>>();
-                
+
                 for (var currentRowNumber = startingRowNumber;
                      currentRowNumber < numberOfRows;
                      currentRowNumber++)
@@ -61,6 +61,21 @@ namespace ThoughtWorks.CodingDojo.MineSweeper.Models
             {
                 _cells.Remove(existingCell);
             }
+        }
+
+        public virtual Board Open(int row, int column)
+        {
+            var cellToOpen = _cells.Where(
+                cell =>
+                cell.Position == new Position(row, column))
+                .SingleOrDefault();
+
+            if (!cellToOpen.IsNull())
+            {
+                cellToOpen.Open();
+            }
+
+            return this;
         }
     }
 }

@@ -1,68 +1,41 @@
-body
+body, body *, * 
 {
-    font-size: 75%;
-    font-family: Verdana, Tahoma, Arial, "Helvetica Neue", Helvetica, Sans-Serif;
-    color: #232323;
-    background-color: #fff;
+	margin: 0px;
+	padding: 0px;
+	border-style: none;
+	color: #000000;
+	background-color: #ffffff;
 }
 
-/* Styles for basic forms
------------------------------------------------------------*/
-
-fieldset 
+.row 
 {
-    border:1px solid #ddd;
-    padding:0 1.4em 1.4em 1.4em;
-    margin:0 0 1.5em 0;
+	display: block;
+	float: left;
 }
 
-legend 
+.cell
 {
-    font-size:1.2em;
-    font-weight: bold;
+	display: inline-block;
+	background-color: #34669a;
+	width: 50px;
+	height: 50px;
+	float: left;
+	clear: left;
+	text-align: center;
+	border: outset 1px #abcdef;
+	line-height: 50px;
+	vertical-align: middle;
+	cursor: pointer;
 }
 
-textarea 
+.cell:hover
 {
-    min-height: 75px;
+	background-color: #3476aa;
+	
 }
 
-.editor-label 
+.cell.with_bomb 
 {
-    margin: 1em 0 0 0;
-}
-
-.editor-field 
-{
-    margin:0.5em 0 0 0;
-}
-
-
-/* Styles for validation helpers
------------------------------------------------------------*/
-.field-validation-error
-{
-    color: #ff0000;
-}
-
-.field-validation-valid
-{
-    display: none;
-}
-
-.input-validation-error
-{
-    border: 1px solid #ff0000;
-    background-color: #ffeeee;
-}
-
-.validation-summary-errors
-{
-    font-weight: bold;
-    color: #ff0000;
-}
-
-.validation-summary-valid
-{
-    display: none;
+	background-color: #a21212;
+	color: #f2f2f2;
 }

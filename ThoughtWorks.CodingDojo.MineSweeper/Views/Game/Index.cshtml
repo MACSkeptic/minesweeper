@@ -5,5 +5,12 @@
 }
 
 <h2>Minesweeper</h2>
-@Html.Partial("
+
+<div class="board">
+@foreach (var row  in Model.Matrix)
+{
+    @Html.Partial("Row", row);		 
+}
+</div>
+
 

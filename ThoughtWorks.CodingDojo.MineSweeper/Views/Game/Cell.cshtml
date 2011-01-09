@@ -1,0 +1,18 @@
+﻿@model ThoughtWorks.CodingDojo.MineSweeper.Models.Cell
+
+@{
+    ViewBag.Title = "Cell";
+}
+
+<div 
+    class="cell @(Model.HasBomb && Model.IsOpen
+        ?"with_bomb"
+        :"")"
+    data-row="@Model.Position.Row"
+    data-column="@Model.Position.Column"
+>
+    @if (Model.IsOpen && !Model.HasBomb)
+    {
+        @Model.NumberOfBombsAround
+    }
+</div>

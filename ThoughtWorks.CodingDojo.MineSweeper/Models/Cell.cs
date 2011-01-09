@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
+using MACSkeptic.Commons.Extensions;
+
 namespace ThoughtWorks.CodingDojo.MineSweeper.Models
 {
     public class Cell
@@ -8,19 +10,33 @@ namespace ThoughtWorks.CodingDojo.MineSweeper.Models
         private readonly Board _board;
         private readonly Contents _contents;
         private readonly Position _position;
-        public Position Position { get { return _position; } }
 
         public Cell(Position position, Contents contents, Board board)
         {
             _position = position;
             _contents = contents;
             _board = board;
+            IsOpen = false;
         }
 
-        public int NumberOfBombsAround { get { return Neighbours.Count(cell => cell.HasBomb); } }
+        public Position Position { get { return _position; } }
+
+        public virtual bool IsOpen { get; private set; }
+        public virtual int NumberOfBombsAround { get { return Neighbours.Count(cell => cell.HasBomb); } }
 
         public virtual bool HasBomb { get { return _contents == Contents.Bomb; } }
         private IList<Cell> Neighbours { get { return _board.CellsAound(this); } }
+
+        public virtual void Open()
+        {
+            IsOpen = true;
+            if (NumberOfBombsAround == 0)
+            {
+                Neighbours
+                    .Where(neighbour => !neighbour.IsOpen)
+                    .Each(neighbour => neighbour.Open());
+            }
+        }
 
         public virtual int DistanceTo(Cell cell)
         {
