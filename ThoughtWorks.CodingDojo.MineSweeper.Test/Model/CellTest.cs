@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-
+﻿using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 using Moq;
-
 using ThoughtWorks.CodingDojo.MineSweeper.Models;
 
 namespace ThoughtWorks.CodingDojo.MineSweeper.Test.Model
@@ -53,13 +49,13 @@ namespace ThoughtWorks.CodingDojo.MineSweeper.Test.Model
             var cell = new Cell(_mockedPosition1.Object, Contents.Bomb, _mockedBoard.Object);
 
             var neighbours = new List<Cell>
-            {
-                _mockedCell1.Object,
-                _mockedCell2.Object,
-                _mockedCell3.Object,
-                _mockedCell4.Object,
-                _mockedCell5.Object
-            };
+                                 {
+                                     _mockedCell1.Object,
+                                     _mockedCell2.Object,
+                                     _mockedCell3.Object,
+                                     _mockedCell4.Object,
+                                     _mockedCell5.Object
+                                 };
 
             _mockedCell1.SetupGet(it => it.HasBomb).Returns(true);
             _mockedCell2.SetupGet(it => it.HasBomb).Returns(true);
@@ -80,13 +76,13 @@ namespace ThoughtWorks.CodingDojo.MineSweeper.Test.Model
 
             _mockedBoard.Setup(it => it.CellsAound(cell)).Returns(
                 new List<Cell>
-                {
-                    _mockedCell1.Object,
-                    _mockedCell2.Object,
-                    _mockedCell3.Object,
-                    _mockedCell4.Object,
-                    _mockedCell5.Object
-                });
+                    {
+                        _mockedCell1.Object,
+                        _mockedCell2.Object,
+                        _mockedCell3.Object,
+                        _mockedCell4.Object,
+                        _mockedCell5.Object
+                    });
 
             AssumingThatNoNeighboursHaveBombs();
 
@@ -114,13 +110,13 @@ namespace ThoughtWorks.CodingDojo.MineSweeper.Test.Model
 
             _mockedBoard.Setup(it => it.CellsAound(cell)).Returns(
                 new List<Cell>
-                {
-                    _mockedCell1.Object,
-                    _mockedCell2.Object,
-                    _mockedCell3.Object,
-                    _mockedCell4.Object,
-                    _mockedCell5.Object
-                });
+                    {
+                        _mockedCell1.Object,
+                        _mockedCell2.Object,
+                        _mockedCell3.Object,
+                        _mockedCell4.Object,
+                        _mockedCell5.Object
+                    });
 
             AssumingThatAtLeastOneNeighbourHasABomb();
 
