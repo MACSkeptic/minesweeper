@@ -1,12 +1,9 @@
 ﻿using System.Linq;
-
 using MACSkeptic.Commons.Extensions;
-
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
 using ThoughtWorks.CodingDojo.MineSweeper.Models;
 
-namespace ThoughtWorks.CodingDojo.MineSweeper.Test.Model
+namespace ThoughtWorks.CodingDojo.MineSweeper.Test.Models
 {
     [TestClass]
     public class BoardTest

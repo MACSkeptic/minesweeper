@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ThoughtWorks.CodingDojo.MineSweeper.Models;
 
-namespace ThoughtWorks.CodingDojo.MineSweeper.Test.Model
+namespace ThoughtWorks.CodingDojo.MineSweeper.Test.Models
 {
     [TestClass]
     public class PositionTest
