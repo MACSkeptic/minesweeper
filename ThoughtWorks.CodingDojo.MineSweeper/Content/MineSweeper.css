@@ -28,6 +28,11 @@ body, body *, *
 	background-color: #3476aa;
 }
 
+.cell:open:hover
+{
+	background-color: #6486ba;
+}
+
 .cell.bomb.open 
 {
 	background-color: #a21212;
@@ -38,11 +43,17 @@ body, body *, *
 {
 	border: outset 1px #424242;
 	background-color: #6486ba;
+	cursor: default;
 }
 
 .cell.with0 
 {
 	color: #6486ba;
+}
+
+.cell.with1
+{
+	color: #00ffff;
 }
 
 .cell.with2
@@ -53,4 +64,9 @@ body, body *, *
 .cell.with3
 {
 	color: #a21212;
+}
+
+.cell.with4
+{
+	color: #724212;
 }
