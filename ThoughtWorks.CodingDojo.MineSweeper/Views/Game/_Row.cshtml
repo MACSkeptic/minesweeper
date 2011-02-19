@@ -1,0 +1,4 @@
+﻿@model IList<ThoughtWorks.CodingDojo.MineSweeper.Models.CellState>
+<tr class="row">
+    @foreach (var cellState in Model) { @Html.RenderPartial("_Cell", cellState);  }
+</tr>

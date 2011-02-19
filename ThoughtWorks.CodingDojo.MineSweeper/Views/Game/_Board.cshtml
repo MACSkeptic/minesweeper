@@ -1,0 +1,5 @@
+﻿@model ThoughtWorks.CodingDojo.MineSweeper.Test.Models.Board
+
+<table class="board">
+    @foreach (var row in Model.State) { @Html.RenderPartial("_Row", row); }
+</table>

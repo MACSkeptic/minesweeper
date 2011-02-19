@@ -10,25 +10,27 @@ namespace ThoughtWorks.CodingDojo.MineSweeper.Models
     public class Board
     {
         private readonly IList<IList<Cell>> _cells;
-        private readonly IList<IList<CellState>> _cellsState;
+        private readonly IList<IList<CellState>> _state;
 
         public Board(int size)
         {
             _cells = new List<IList<Cell>>(size);
-            _cellsState = new List<IList<CellState>>(size);
+            _state = new List<IList<CellState>>(size);
 
             for (var column = 0; column < size; column++)
             {
                 _cells.Add(new List<Cell>(size));
-                _cellsState.Add(new List<CellState>(size));
+                _state.Add(new List<CellState>(size));
                 for (var row = 0; row < size; row++)
                 {
                     var cell = new Cell(new CellContents(false), new Position(row, column));
                     _cells[column].Add(cell);
-                    _cellsState[column].Add(new CellState(cell, 9));
+                    _state[column].Add(new CellState(cell, 9));
                 }
             }
         }
+
+        public virtual IList<IList<CellState>> State { get { return _state; } }
 
         private IEnumerable<Cell> AllCells { get { return _cells.SelectMany(c => c); } }
 
@@ -46,7 +48,7 @@ namespace ThoughtWorks.CodingDojo.MineSweeper.Models
                     .Each(c => Open(c.Row, c.Column));
             }
 
-            return _cellsState[column][row] = new CellState(cell, bombsAround);
+            return _state[column][row] = new CellState(cell, bombsAround);
         }
 
         private int BombsAround(Cell cell)
