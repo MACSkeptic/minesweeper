@@ -1,23 +1,13 @@
 $(function () {
-    $('.cell').click(function () {
+    function onCellClick() {
         var row = $(this).data('row');
         var column = $(this).data('column');
 
-        var form = $('<form>', {
-                action: '/' 
-            }).
-            append($('<input>', {
-                type: 'text',
-                value: row,
-                name: 'row' 
-            })).
-            append($('<input>', {
-                type: 'text',
-                value: column,
-                name: 'column' 
-            }));
+        $.post('/Game/Open', { row: row, column: column }, function (data) {
+            $('.board').replaceWith(data);
+            $('.cell').bind('click', onCellClick);
+        }, 'html');
+    }
 
-        $('body').append(form);
-        form.submit();
-    });
+    $('.cell').bind('click', onCellClick);
 });

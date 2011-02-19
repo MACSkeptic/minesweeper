@@ -67,5 +67,7 @@ namespace ThoughtWorks.CodingDojo.MineSweeper.Models
         public virtual int HowManyBombsAround { get { return _howManyBombsAround; } }
         public virtual bool IsBomb { get { return _cell.IsOpen && _cell.HasBomb; } }
         public virtual bool IsOpen { get { return _cell.IsOpen; } }
+        public virtual int Row { get { return _cell.Row; } }
+        public virtual int Column { get { return _cell.Column; } }
     }
 }
