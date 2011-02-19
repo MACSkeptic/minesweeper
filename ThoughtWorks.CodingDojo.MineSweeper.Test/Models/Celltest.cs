@@ -1,5 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
+using ThoughtWorks.CodingDojo.MineSweeper.Models;
+
 namespace ThoughtWorks.CodingDojo.MineSweeper.Test.Models
 {
     [TestClass]

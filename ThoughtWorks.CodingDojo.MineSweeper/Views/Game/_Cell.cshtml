@@ -1,0 +1,5 @@
+﻿@model ThoughtWorks.CodingDojo.MineSweeper.Models.CellState
+
+<div class="cell @(Model.IsOpen? "open":"") @(Model.IsBomb? "bomb":"")">
+    @(Model.IsOpen ? Model.HowManyBombsAround.ToString() : "")
+</div>
