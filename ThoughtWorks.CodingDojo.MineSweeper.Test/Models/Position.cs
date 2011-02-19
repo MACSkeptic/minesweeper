@@ -4,14 +4,18 @@ namespace ThoughtWorks.CodingDojo.MineSweeper.Test.Models
 {
     public class Position : IEquatable<Position>
     {
-        private readonly int _row;
         private readonly int _column;
+        private readonly int _row;
 
         public Position(int row, int column)
         {
             _row = row;
             _column = column;
         }
+
+        public int Row { get { return _row; } }
+
+        public int Column { get { return _column; } }
 
         public bool Equals(Position other)
         {
@@ -65,7 +69,7 @@ namespace ThoughtWorks.CodingDojo.MineSweeper.Test.Models
         private int DistanceTo(Position position)
         {
             return Math.Max(
-                Math.Abs(position._row - _row), 
+                Math.Abs(position._row - _row),
                 Math.Abs(position._column - _column));
         }
 
