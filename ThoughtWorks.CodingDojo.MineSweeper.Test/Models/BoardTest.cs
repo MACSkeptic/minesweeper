@@ -1,5 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+﻿using MACSkeptic.Commons.Extensions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ThoughtWorks.CodingDojo.MineSweeper.Models;
 
 namespace ThoughtWorks.CodingDojo.MineSweeper.Test.Models
@@ -52,7 +52,7 @@ namespace ThoughtWorks.CodingDojo.MineSweeper.Test.Models
         public void ShouldProvideAMechanismToCheckIfACellIsOpen()
         {
             var board = new Board(2);
-            
+
             Assert.IsFalse(board.IsOpen(1, 1));
 
             board.Open(1, 1);
@@ -91,6 +91,40 @@ namespace ThoughtWorks.CodingDojo.MineSweeper.Test.Models
             Assert.IsTrue(board.IsOpen(8, 4));
             Assert.IsTrue(board.IsOpen(8, 3));
             Assert.IsTrue(board.IsOpen(7, 2));
+        }
+
+        [TestMethod]
+        public void ShouldKeepTheStateOfTheBoardAsTheCellsAreOpened()
+        {
+            var board = new Board(4);
+            board.AddBombAt(0, 1);
+            board.AddBombAt(1, 0);
+            board.AddBombAt(1, 1);
+
+            board.State.Each(
+                row => row.Each(
+                    cellState => Assert.IsFalse(cellState.IsOpen)));
+
+            board.Open(0, 0);
+            Assert.IsFalse(board.State[0][1].IsOpen);
+            Assert.IsFalse(board.State[1][0].IsOpen);
+            Assert.IsFalse(board.State[1][1].IsOpen);
+            Assert.IsFalse(board.State[2][2].IsOpen);
+            Assert.IsTrue(board.State[0][0].IsOpen);
+            Assert.AreEqual(3, board.State[0][0].HowManyBombsAround);
+
+            board.Open(3, 3);
+            Assert.IsFalse(board.State[0][1].IsOpen);
+            Assert.IsFalse(board.State[1][0].IsOpen);
+            Assert.IsFalse(board.State[1][1].IsOpen);
+            Assert.IsTrue(board.State[2][2].IsOpen);
+            Assert.IsTrue(board.State[2][3].IsOpen);
+            Assert.IsTrue(board.State[3][2].IsOpen);
+            Assert.IsTrue(board.State[3][3].IsOpen);
+            Assert.AreEqual(2, board.State[1][2].HowManyBombsAround);
+            Assert.AreEqual(2, board.State[2][1].HowManyBombsAround);
+            Assert.AreEqual(1, board.State[2][2].HowManyBombsAround);
+
         }
     }
 }
