@@ -54,6 +54,13 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\FakeControllerContext.cs" />
+    <Compile Include="Controllers\FakeHttpContext.cs" />
+    <Compile Include="Controllers\FakeHttpRequest.cs" />
+    <Compile Include="Controllers\FakeHttpSessionState.cs" />
+    <Compile Include="Controllers\FakeIdentity.cs" />
+    <Compile Include="Controllers\FakePrincipal.cs" />
+    <Compile Include="Controllers\GameControllerTest.cs" />
     <Compile Include="Models\BoardTest.cs" />
     <Compile Include="Models\CellTest.cs" />
     <Compile Include="Models\PositionTest.cs" />

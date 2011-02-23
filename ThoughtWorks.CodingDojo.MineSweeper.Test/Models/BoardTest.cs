@@ -94,6 +94,42 @@ namespace ThoughtWorks.CodingDojo.MineSweeper.Test.Models
         }
 
         [TestMethod]
+        public void ShouldConsiderTheGameAsOverIfABombCellIsOpened()
+        {
+            var board = new Board(2);
+            board.AddBombAt(0, 0);
+            
+            Assert.IsFalse(board.IsGameOver);
+
+            board.Open(1, 1);
+            Assert.IsFalse(board.IsGameOver);
+            board.Open(0, 1);
+            Assert.IsFalse(board.IsGameOver);
+            board.Open(1, 0);
+            Assert.IsFalse(board.IsGameOver);
+
+            board.Open(0, 0);
+            Assert.IsTrue(board.IsGameOver);
+        }
+
+        [TestMethod]
+        public void ShouldConsiderTheGameToBeWonIfAllTheClosedCellsRemainingAreBombs()
+        {
+            var board = new Board(2);
+            board.AddBombAt(0, 0);
+
+            Assert.IsFalse(board.IsWin);
+
+            board.Open(1, 1);
+            Assert.IsFalse(board.IsWin);
+            board.Open(0, 1);
+            Assert.IsFalse(board.IsWin);
+
+            board.Open(1, 0);
+            Assert.IsTrue(board.IsWin);
+        }
+
+        [TestMethod]
         public void ShouldKeepTheStateOfTheBoardAsTheCellsAreOpened()
         {
             var board = new Board(4);

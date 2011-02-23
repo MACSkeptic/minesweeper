@@ -70,3 +70,15 @@ body, body *, *
 {
 	color: #724212;
 }
+
+.gameover, .win
+{
+    color: #da2e2f;
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.win
+{
+    color: #22ff57;
+}

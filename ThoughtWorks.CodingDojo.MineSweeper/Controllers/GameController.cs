@@ -14,14 +14,21 @@ namespace ThoughtWorks.CodingDojo.MineSweeper.Controllers
             return
                 View(Session[BoardSessionKey] =
                      new RandomBoardGenerator().Generate(
-                         board => board.WithSize(10).With(20).Bombs));
+                         board => board.WithSize(10).With(1).Bombs));
         }
 
         public ActionResult Open(int row, int column)
         {
             var board = Session[BoardSessionKey] as Board;
             board.Open(row, column);
-            return PartialView("_Board", board);
+
+            return PartialView(
+                board.IsGameOver 
+                ? "_GameOver" 
+                : board.IsWin 
+                    ? "_Win" 
+                    : "_Board", 
+                board);
         }
     }
 }

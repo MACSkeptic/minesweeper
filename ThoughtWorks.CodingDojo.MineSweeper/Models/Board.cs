@@ -35,6 +35,16 @@ namespace ThoughtWorks.CodingDojo.MineSweeper.Models
 
         private IEnumerable<Cell> AllCells { get { return _cells.SelectMany(c => c); } }
 
+        public virtual bool IsGameOver
+        {
+            get { return AllCells.Any(c => c.IsOpen && c.HasBomb); }
+        }
+
+        public virtual bool IsWin
+        {
+            get { return AllCells.Where(c => !c.IsOpen).All(c => c.HasBomb); }
+        }
+
         public virtual CellState Open(int row, int column)
         {
             var cell = _cells[row][column];

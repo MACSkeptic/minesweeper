@@ -5,9 +5,9 @@ $(function () {
 
         $.post('/Game/Open', { row: row, column: column }, function (data) {
             $('.board').replaceWith(data);
-            $('.cell').bind('click', onCellClick);
+            $('.cell:not(.open)').bind('click', onCellClick);
         }, 'html');
     }
 
-    $('.cell').bind('click', onCellClick);
+    $('.cell:not(.open)').bind('click', onCellClick);
 });
