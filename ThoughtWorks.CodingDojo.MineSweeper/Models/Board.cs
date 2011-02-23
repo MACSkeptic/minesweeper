@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 using MACSkeptic.Commons.Extensions;
@@ -64,6 +65,11 @@ namespace ThoughtWorks.CodingDojo.MineSweeper.Models
         public virtual bool IsOpen(int row, int column)
         {
             return _cells[row][column].IsOpen;
+        }
+
+        public void AddBombAt(Position position)
+        {
+            AddBombAt(position.Row, position.Column);
         }
     }
 }

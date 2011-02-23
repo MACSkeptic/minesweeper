@@ -68,7 +68,12 @@
     <Compile Include="Models\Cell.cs" />
     <Compile Include="Models\CellContents.cs" />
     <Compile Include="Models\CellState.cs" />
+    <Compile Include="Models\EnumerableExtensions.cs" />
+    <Compile Include="Models\IBoardConfig.cs" />
+    <Compile Include="Models\INumberOfBombsOfBoard.cs" />
+    <Compile Include="Models\ISizeOfBoard.cs" />
     <Compile Include="Models\Position.cs" />
+    <Compile Include="Models\RandomBoardGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

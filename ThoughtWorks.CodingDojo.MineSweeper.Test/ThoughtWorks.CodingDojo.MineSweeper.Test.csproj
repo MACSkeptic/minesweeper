@@ -57,6 +57,7 @@
     <Compile Include="Models\BoardTest.cs" />
     <Compile Include="Models\CellTest.cs" />
     <Compile Include="Models\PositionTest.cs" />
+    <Compile Include="Models\RandomBoardGeneratorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
