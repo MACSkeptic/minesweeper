@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MACSkeptic.Commons">
-      <HintPath>..\..\macskepticommons\MACSkeptic.Commons\bin\Debug\MACSkeptic.Commons.dll</HintPath>
+      <HintPath>..\Libraries\MACSkeptic.Commons.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages" />

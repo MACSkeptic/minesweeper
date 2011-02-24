@@ -28,7 +28,6 @@ namespace ThoughtWorks.CodingDojo.MineSweeper.Controllers
         public ActionResult Index()
         {
             var board = _generator.Generate(b => b.WithSize(9).With(10).Bombs);
-            Session["board"] = board;
             return View(board);
         }
         

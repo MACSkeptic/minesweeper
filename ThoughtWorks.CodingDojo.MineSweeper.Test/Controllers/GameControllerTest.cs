@@ -19,14 +19,11 @@ namespace ThoughtWorks.CodingDojo.MineSweeper.Test.Controllers
         [TestMethod]
         public void ShouldProvideABoardToPlayTheGame()
         {
-
-            var session = new SessionStateItemCollection();
             board = new Board(9);
             var moqBoardGenerator = createMock();
             var controller = new GameController(moqBoardGenerator.Object);            
             var result = controller.Index() as ViewResult;
 
-            session["board"] = board;
             Assert.IsNotNull(result.Model);
             moqBoardGenerator.Verify();
         }
@@ -36,9 +33,11 @@ namespace ThoughtWorks.CodingDojo.MineSweeper.Test.Controllers
         public Mock<RandomBoardGenerator> createMock()
         {
             var moqBoardGenerator = new Mock<RandomBoardGenerator>();
-             board = new Board(9);
+            board = new Board(9);
             board.AddBombAt(1, 2);
 
+            var session = new SessionStateItemCollection();
+            session["board"] = board;
             moqBoardGenerator
                 .Setup(x => x.Generate(It.IsAny<Func<ISizeOfBoard, Board>>()))
                 .Returns(board);
