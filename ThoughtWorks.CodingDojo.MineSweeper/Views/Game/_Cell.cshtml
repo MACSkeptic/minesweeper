@@ -1,9 +1,0 @@
-﻿@model ThoughtWorks.CodingDojo.MineSweeper.Models.CellState
-
-<td 
-    class="cell @(Model.IsOpen? "open with" + Model.HowManyBombsAround:"") @(Model.IsBomb? "bomb":"")"
-    data-row="@Model.Row"
-    data-column="@Model.Column"
->
-    @(Model.IsOpen ? Model.HowManyBombsAround.ToString() : "")
-</td>

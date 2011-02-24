@@ -1,13 +1,8 @@
-$(function () {
-    function onCellClick() {
-        var row = $(this).data('row');
-        var column = $(this).data('column');
+$(document).ready(function () {
+    $(".cell").click(function () {
+        var row = $(this).data("row");
+        var col = $(this).data("col");
 
-        $.post('/Game/Open', { row: row, column: column }, function (data) {
-            $('.board').replaceWith(data);
-            $('.cell:not(.open)').bind('click', onCellClick);
-        }, 'html');
-    }
 
-    $('.cell:not(.open)').bind('click', onCellClick);
+    });
 });

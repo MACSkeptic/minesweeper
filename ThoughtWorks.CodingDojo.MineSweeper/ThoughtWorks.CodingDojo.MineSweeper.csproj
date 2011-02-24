@@ -110,23 +110,9 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Views\Game\Index.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Game\_Cell.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Game\_Board.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Game\_Row.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Game\_GameOver.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Game\_Win.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

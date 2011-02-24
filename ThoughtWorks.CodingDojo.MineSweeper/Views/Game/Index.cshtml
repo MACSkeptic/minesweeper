@@ -1,9 +1,18 @@
 ﻿@model ThoughtWorks.CodingDojo.MineSweeper.Models.Board
 
 @{
-    ViewBag.Title = "Minesweeper";
+    ViewBag.Title = "Index";
 }
 
-<h2>Minesweeper</h2>
-@Html.Partial("_Board", Model)
-
+<h2>Hey, Dojo Minesweeper!! \o/</h2>
+<table>
+@foreach (var line in Model.State)
+{
+    <tr>
+    @foreach (var cell in line)
+    {
+        <td class="cell" data-row="@cell.Row" data-col="@cell.Column"></td>
+    }
+    </tr>
+}
+</table>

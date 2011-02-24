@@ -1,34 +1,41 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 using ThoughtWorks.CodingDojo.MineSweeper.Models;
 
 namespace ThoughtWorks.CodingDojo.MineSweeper.Controllers
 {
     public class GameController : Controller
     {
-        private const string BoardSessionKey = "board";
+        private readonly RandomBoardGenerator _generator;
         //
         // GET: /Game/
 
-        public ActionResult Index()
+        public GameController()
+            : this(new RandomBoardGenerator())
         {
-            return
-                View(Session[BoardSessionKey] =
-                     new RandomBoardGenerator().Generate(
-                         board => board.WithSize(10).With(1).Bombs));
+            
         }
 
-        public ActionResult Open(int row, int column)
+        public GameController(RandomBoardGenerator generator)
         {
-            var board = Session[BoardSessionKey] as Board;
-            board.Open(row, column);
 
-            return PartialView(
-                board.IsGameOver 
-                ? "_GameOver" 
-                : board.IsWin 
-                    ? "_Win" 
-                    : "_Board", 
-                board);
+            _generator = generator;
+        }
+
+        public ActionResult Index()
+        {
+            var board = _generator.Generate(b => b.WithSize(9).With(10).Bombs);
+            Session["board"] = board;
+            return View(board);
+        }
+        
+        public JsonResult HasBomb(int row, int col)
+        {
+            var board = Session["board"] as Board;
+            return Json(board.Open(row,col).IsBomb);
         }
     }
 }

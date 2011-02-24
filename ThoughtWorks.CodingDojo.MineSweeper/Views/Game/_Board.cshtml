@@ -1,8 +1,0 @@
-﻿@model ThoughtWorks.CodingDojo.MineSweeper.Models.Board
-
-<table class="board">
-    @foreach (var row in Model.State) 
-    {
-        @Html.Partial("_Row", row)
-    }
-</table>

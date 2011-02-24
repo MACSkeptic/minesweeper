@@ -8,7 +8,7 @@ namespace ThoughtWorks.CodingDojo.MineSweeper.Models
 {
     public class RandomBoardGenerator
     {
-        public Board Generate(Func<ISizeOfBoard, Board> specs)
+        public virtual Board Generate(Func<ISizeOfBoard, Board> specs)
         {
             return specs.Invoke(new BoardBuilder());
         }
